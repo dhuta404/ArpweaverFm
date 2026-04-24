@@ -2,11 +2,6 @@
 
 ARPWEAVER FM is a Windows-first Wwise Source Plug-in project for real-time DX7-style FM synthesis with SysEx preset import, global scale control, chord generation, step sequencing, and lightweight FX.
 
-## Project Root
-
-- Project source: `D:\Desktop\Fmod Pjkt\New Wwise\ARPWEAVER_FM_V1_1\ArpweaverFm_Project`
-- Launcher bundle folder: `D:\Desktop\Fmod Pjkt\New Wwise\ARPWEAVER_FM_V1_1\LauncherBundle_dhuta404_ARPWEAVER_FM`
-- Launcher bundle zip: `D:\Desktop\Fmod Pjkt\New Wwise\ARPWEAVER_FM_V1_1\ARPWEAVER_FM_LauncherBundle_dhuta404.zip`
 
 ## Main Folders
 
@@ -63,7 +58,7 @@ ARPWEAVER FM is a Windows-first Wwise Source Plug-in project for real-time DX7-s
 
 ## Important Accuracy Note
 
-This project preserves a full DX7-style patch data structure and uses DX-inspired runtime lookup/envelope/routing behavior. It is designed so SysEx data is not discarded or collapsed into only a few fake macro values.
+This project preserves a DX7-style patch data structure and uses DX-inspired runtime lookup/envelope/routing behavior. 
 
 It is not claimed to be bit-identical to hardware DX7 or Dexed. The architecture is set up so the FM core can continue evolving toward closer parity.
 
@@ -84,14 +79,6 @@ This repository may also reference third-party research material, open-source ex
 - ATL / MFC component installed
 - Python 3
 - Wwise 2025.1.6.9117
-
-### Runtime Build
-
-From `D:\Desktop\Fmod Pjkt\New Wwise\ARPWEAVER_FM_V1_1\ArpweaverFm_Project`:
-
-```powershell
-call "E:\Visual Studio IDE\Common7\Tools\VsMSBuildCmd.bat"
-"E:\Visual Studio IDE\MSBuild\Current\Bin\MSBuild.exe" ArpweaverFm_Windows_vc170_static.sln /t:Build /p:Configuration=Release /p:Platform=x64 /m
 ```
 
 ### Authoring Build
@@ -117,7 +104,7 @@ These are assembled into the Launcher bundle folder and zip located in the proje
 2. Open Wwise Launcher.
 3. Go to `Installed Plug-ins`.
 4. Click `Add from directory`.
-5. Select `D:\Desktop\Fmod Pjkt\New Wwise\ARPWEAVER_FM_V1_1\LauncherBundle_dhuta404_ARPWEAVER_FM`.
+5. Select `ARPWEAVER_FM.zip`.
 6. Install the plug-in for Wwise `2025.1.6.9117`.
 7. Re-open Wwise.
 8. Create a `Sound SFX`.
