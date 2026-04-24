@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Win32">
+      <UniqueIdentifier>{78C2600E-E4D6-88BF-AD58-2C1F192C85F0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArpweaverFmPlugin.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Win32\ArpweaverFmPluginGUI.h">
+      <Filter>Win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArpweaverFmPlugin.cpp" />
+    <ClCompile Include="Win32\ArpweaverFmPluginGUI.cpp">
+      <Filter>Win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ArpweaverFm.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ArpweaverFm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ArpweaverFm.rc" />
+  </ItemGroup>
+</Project>

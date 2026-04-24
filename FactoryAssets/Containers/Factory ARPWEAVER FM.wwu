@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9D63339A-3988-4D89-9389-B84A1E9AB1E2}" SchemaVersion="133">
+  <Containers>
+    <WorkUnit Name="Factory ARPWEAVER FM" ID="{9D63339A-3988-4D89-9389-B84A1E9AB1E2}" PersistMode="Standalone">
+      <ChildrenList>
+        <Sound Name="ARPWEAVER FM" ID="{4C16089B-A035-4AC7-8D58-6F7B88A0BB46}" ShortID="145871921">
+          <ReferenceList>
+            <Reference Name="Conversion" CompanyID="4095" PluginID="65535" PluginType="15">
+              <ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BB3A0F0F-2450-440E-933E-B9BF945DF4D1}"/>
+            </Reference>
+            <Reference Name="OutputBus" CompanyID="4095" PluginID="65535" PluginType="15">
+              <ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{15D810DF-6509-41EC-A32F-A44074BAC475}"/>
+            </Reference>
+          </ReferenceList>
+          <ChildrenList>
+            <SourcePlugin Name="ARPWEAVER FM" ID="{2C64D05E-0A0E-4189-B10E-F3933A3E2BF5}" ShortID="612481073" PluginName="ArpweaverFm" CompanyID="64" PluginID="18711">
+              <PropertyList>
+                <Property Name="PitchBase" Type="Real32" Value="60"/>
+                <Property Name="Brightness" Type="Real32" Value="0.55"/>
+                <Property Name="Volume" Type="Real32" Value="0.8"/>
+                <Property Name="RootNote" Type="int32" Value="0"/>
+                <Property Name="ScaleMode" Type="int32" Value="0"/>
+                <Property Name="Bpm" Type="Real32" Value="120"/>
+                <Property Name="ArpOn" Type="bool" Value="True"/>
+                <Property Name="ArpRate" Type="Real32" Value="6"/>
+                <Property Name="ArpMode" Type="int32" Value="0"/>
+                <Property Name="ArpStepCount" Type="Real32" Value="8"/>
+                <Property Name="SeqPattern" Type="int32" Value="0"/>
+                <Property Name="SeqGate" Type="Real32" Value="0.8"/>
+              </PropertyList>
+              <Language>SFX</Language>
+            </SourcePlugin>
+          </ChildrenList>
+          <ActiveSourceList>
+            <ActiveSource Name="ARPWEAVER FM" ID="{2C64D05E-0A0E-4189-B10E-F3933A3E2BF5}" Platform="Linked"/>
+          </ActiveSourceList>
+        </Sound>
+      </ChildrenList>
+    </WorkUnit>
+  </Containers>
+</WwiseDocument>

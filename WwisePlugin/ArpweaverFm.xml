@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+  <SourcePlugin Name="ArpweaverFm" CompanyID="64" PluginID="18711" EngineStaticLibName="ArpweaverFmSource" DisplayName="ARPWEAVER FM">
+    <PluginInfo CanUnlink="true" MenuPath="00-Wwise">
+      <PlatformSupport>
+        <Platform Name="Any"></Platform>
+      </PlatformSupport>
+    </PluginInfo>
+
+    <Properties>
+      <Property Name="PitchBase" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Pitch Base (MIDI)" DisplayGroup="ArpweaverFm/Core">
+        <UserInterface Step="0.25" Fine="0.05" Decimals="2"/>
+        <DefaultValue>60</DefaultValue>
+        <AudioEnginePropertyID>0</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>24</Min>
+              <Max>96</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Brightness" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Brightness" DisplayGroup="ArpweaverFm/Core">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.55</DefaultValue>
+        <AudioEnginePropertyID>1</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Volume" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Volume" DisplayGroup="ArpweaverFm/Core">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.8</DefaultValue>
+        <AudioEnginePropertyID>2</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="RootNote" Type="int32" SupportRTPCType="Exclusive" DisplayName="Root Note" DisplayGroup="ArpweaverFm/Global">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>3</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="C">0</Value>
+              <Value DisplayName="C# / Db">1</Value>
+              <Value DisplayName="D">2</Value>
+              <Value DisplayName="D# / Eb">3</Value>
+              <Value DisplayName="E">4</Value>
+              <Value DisplayName="F">5</Value>
+              <Value DisplayName="F# / Gb">6</Value>
+              <Value DisplayName="G">7</Value>
+              <Value DisplayName="G# / Ab">8</Value>
+              <Value DisplayName="A">9</Value>
+              <Value DisplayName="A# / Bb">10</Value>
+              <Value DisplayName="B">11</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ScaleMode" Type="int32" SupportRTPCType="Exclusive" DisplayName="Scale / Mode" DisplayGroup="ArpweaverFm/Global">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>4</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Major (Ionian)">0</Value>
+              <Value DisplayName="Natural Minor (Aeolian)">1</Value>
+              <Value DisplayName="Dorian">2</Value>
+              <Value DisplayName="Phrygian">3</Value>
+              <Value DisplayName="Lydian">4</Value>
+              <Value DisplayName="Mixolydian">5</Value>
+              <Value DisplayName="Locrian">6</Value>
+              <Value DisplayName="Harmonic Minor">7</Value>
+              <Value DisplayName="Melodic Minor">8</Value>
+              <Value DisplayName="Harmonic Major">9</Value>
+              <Value DisplayName="Pentatonic Major">10</Value>
+              <Value DisplayName="Pentatonic Minor">11</Value>
+              <Value DisplayName="Blues Minor">12</Value>
+              <Value DisplayName="Blues Major">13</Value>
+              <Value DisplayName="Whole Tone">14</Value>
+              <Value DisplayName="Diminished (Half-Whole)">15</Value>
+              <Value DisplayName="Diminished (Whole-Half)">16</Value>
+              <Value DisplayName="Chromatic">17</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Bpm" Type="Real32" SupportRTPCType="Exclusive" DisplayName="BPM" DisplayGroup="ArpweaverFm/Global">
+        <UserInterface Step="1" Fine="0.1" Decimals="1"/>
+        <DefaultValue>60</DefaultValue>
+        <AudioEnginePropertyID>51</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>20</Min>
+              <Max>240</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ArpOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Sequencer On" DisplayGroup="ArpweaverFm/Sequencer">
+        <DefaultValue>true</DefaultValue>
+        <AudioEnginePropertyID>5</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="ArpRate" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Sequencer Rate (notes/sec)" DisplayGroup="ArpweaverFm/Sequencer">
+        <UserInterface Step="0.1" Fine="0.01" Decimals="2"/>
+        <DefaultValue>6</DefaultValue>
+        <AudioEnginePropertyID>6</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0.25</Min>
+              <Max>24</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ArpMode" Type="int32" SupportRTPCType="Exclusive" DisplayName="Sequencer Mode" DisplayGroup="ArpweaverFm/Sequencer">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>7</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Up">0</Value>
+              <Value DisplayName="Down">1</Value>
+              <Value DisplayName="Random">2</Value>
+              <Value DisplayName="Ping Pong">3</Value>
+              <Value DisplayName="Converge">4</Value>
+              <Value DisplayName="Diverge">5</Value>
+              <Value DisplayName="Sequence Order">6</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ArpStepCount" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Sequence Length" DisplayGroup="ArpweaverFm/Sequencer">
+        <UserInterface Step="0.25" Fine="0.05" Decimals="2"/>
+        <DefaultValue>8</DefaultValue>
+        <AudioEnginePropertyID>8</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>1</Min>
+              <Max>16</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="SeqPattern" Type="int32" SupportRTPCType="Exclusive" DisplayName="Rhythm Pattern" DisplayGroup="ArpweaverFm/Sequencer">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>33</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Straight">0</Value>
+              <Value DisplayName="Offbeat">1</Value>
+              <Value DisplayName="Gallop">2</Value>
+              <Value DisplayName="Tresillo">3</Value>
+              <Value DisplayName="Syncopated">4</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmRatioCarrier" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Carrier Ratio" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.05" Fine="0.01" Decimals="3"/>
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>9</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0.125</Min>
+              <Max>16</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmRatioMod" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Mod Ratio" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.05" Fine="0.01" Decimals="3"/>
+        <DefaultValue>2</DefaultValue>
+        <AudioEnginePropertyID>10</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0.125</Min>
+              <Max>16</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmIndex" Type="Real32" SupportRTPCType="Exclusive" DisplayName="FM Index" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.05" Fine="0.01" Decimals="2"/>
+        <DefaultValue>2.5</DefaultValue>
+        <AudioEnginePropertyID>11</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>20</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmCarrierLevel" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Output Level" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.85</DefaultValue>
+        <AudioEnginePropertyID>12</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmModLevel" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Mod Level" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.75</DefaultValue>
+        <AudioEnginePropertyID>13</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="UseSysexPatch" Type="bool" DisplayName="Use SysEx Patch" DisplayGroup="ArpweaverFm/FM/SysEx">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>14</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="PatchIndex" Type="int32" DisplayName="Patch Index" DisplayGroup="ArpweaverFm/FM/SysEx">
+        <UserInterface Step="1" Fine="1" Decimals="0"/>
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>15</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="int32">
+              <Min>0</Min>
+              <Max>127</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="SysexFilePath" Type="string" DisplayName="SysEx File Path" DisplayGroup="ArpweaverFm/FM/SysEx">
+        <DefaultValue />
+        <AudioEnginePropertyID>29</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="UnisonVoices" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Unison Voices" DisplayGroup="ArpweaverFm/FX/Unison">
+        <UserInterface Step="0.1" Fine="0.01" Decimals="2"/>
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>16</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>1</Min>
+              <Max>4</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="UnisonDetune" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Unison Detune (semitones)" DisplayGroup="ArpweaverFm/FX/Unison">
+        <UserInterface Step="0.005" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.08</DefaultValue>
+        <AudioEnginePropertyID>17</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>0.35</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ChorusOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Chorus On" DisplayGroup="ArpweaverFm/FX/Chorus">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>18</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="ChorusRate" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Chorus Rate (Hz)" DisplayGroup="ArpweaverFm/FX/Chorus">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.35</DefaultValue>
+        <AudioEnginePropertyID>19</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0.05</Min>
+              <Max>5</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ChorusDepthMs" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Chorus Depth (ms)" DisplayGroup="ArpweaverFm/FX/Chorus">
+        <UserInterface Step="0.1" Fine="0.01" Decimals="2"/>
+        <DefaultValue>7.5</DefaultValue>
+        <AudioEnginePropertyID>20</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>30</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ChorusMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Chorus Mix" DisplayGroup="ArpweaverFm/FX/Chorus">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.25</DefaultValue>
+        <AudioEnginePropertyID>21</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="DelayOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Delay On" DisplayGroup="ArpweaverFm/FX/Delay">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>22</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="DelayTimeMs" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Delay Time (ms)" DisplayGroup="ArpweaverFm/FX/Delay">
+        <UserInterface Step="0.5" Fine="0.1" Decimals="1"/>
+        <DefaultValue>280</DefaultValue>
+        <AudioEnginePropertyID>23</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>5</Min>
+              <Max>2000</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="DelayFeedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Delay Feedback" DisplayGroup="ArpweaverFm/FX/Delay">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.35</DefaultValue>
+        <AudioEnginePropertyID>24</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>0.95</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="DelayMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Delay Mix" DisplayGroup="ArpweaverFm/FX/Delay">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.2</DefaultValue>
+        <AudioEnginePropertyID>25</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ReverbOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Reverb On" DisplayGroup="ArpweaverFm/FX/Reverb">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>26</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="ReverbMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Reverb Mix" DisplayGroup="ArpweaverFm/FX/Reverb">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.2</DefaultValue>
+        <AudioEnginePropertyID>27</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ReverbDamp" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Reverb Damp" DisplayGroup="ArpweaverFm/FX/Reverb">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.55</DefaultValue>
+        <AudioEnginePropertyID>28</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ChordOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Chord On" DisplayGroup="ArpweaverFm/Chord">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>30</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="ChordMode" Type="int32" SupportRTPCType="Exclusive" DisplayName="Chord Mode" DisplayGroup="ArpweaverFm/Chord">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>31</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Major Triad">0</Value>
+              <Value DisplayName="Minor Triad">1</Value>
+              <Value DisplayName="Sus2">2</Value>
+              <Value DisplayName="Sus4">3</Value>
+              <Value DisplayName="Major 7">4</Value>
+              <Value DisplayName="Minor 7">5</Value>
+              <Value DisplayName="Dominant 7">6</Value>
+              <Value DisplayName="Diminished">7</Value>
+              <Value DisplayName="Augmented">8</Value>
+              <Value DisplayName="Power 5">9</Value>
+              <Value DisplayName="Add 9">10</Value>
+              <Value DisplayName="Minor 9">11</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="ChordSpread" Type="int32" SupportRTPCType="Exclusive" DisplayName="Degree Path" DisplayGroup="ArpweaverFm/Chord">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>32</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Static Tonic">0</Value>
+              <Value DisplayName="I-IV-vii-iii-vi-ii-V">1</Value>
+              <Value DisplayName="I-vi-ii-V">2</Value>
+              <Value DisplayName="i-VI-III-VII">3</Value>
+              <Value DisplayName="Cadence Walk">4</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmFeedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Feedback" DisplayGroup="ArpweaverFm/FM Core">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.0</DefaultValue>
+        <AudioEnginePropertyID>34</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real64">
+              <Min>0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FmAlgorithmMacro" Type="int32" SupportRTPCType="Exclusive" DisplayName="Algorithm" DisplayGroup="ArpweaverFm/FM Core">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>35</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="int32">
+              <Min>0</Min>
+              <Max>31</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="AmpAttack" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Attack" DisplayGroup="ArpweaverFm/FM Core/Envelope">
+        <UserInterface Step="0.005" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.02</DefaultValue>
+        <AudioEnginePropertyID>36</AudioEnginePropertyID>
+        <Restrictions><ValueRestriction><Range Type="Real64"><Min>0.0025</Min><Max>3</Max></Range></ValueRestriction></Restrictions>
+      </Property>
+
+      <Property Name="AmpDecay" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Decay" DisplayGroup="ArpweaverFm/FM Core/Envelope">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.30</DefaultValue>
+        <AudioEnginePropertyID>37</AudioEnginePropertyID>
+        <Restrictions><ValueRestriction><Range Type="Real64"><Min>0.01</Min><Max>4</Max></Range></ValueRestriction></Restrictions>
+      </Property>
+
+      <Property Name="AmpSustain" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Sustain" DisplayGroup="ArpweaverFm/FM Core/Envelope">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.85</DefaultValue>
+        <AudioEnginePropertyID>38</AudioEnginePropertyID>
+        <Restrictions><ValueRestriction><Range Type="Real64"><Min>0</Min><Max>1</Max></Range></ValueRestriction></Restrictions>
+      </Property>
+
+      <Property Name="AmpRelease" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Release" DisplayGroup="ArpweaverFm/FM Core/Envelope">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.30</DefaultValue>
+        <AudioEnginePropertyID>39</AudioEnginePropertyID>
+        <Restrictions><ValueRestriction><Range Type="Real64"><Min>0.02</Min><Max>5</Max></Range></ValueRestriction></Restrictions>
+      </Property>
+
+      <Property Name="ChordInversion" Type="int32" SupportRTPCType="Exclusive" DisplayName="Inversion" DisplayGroup="ArpweaverFm/Chord">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>40</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Root">0</Value>
+              <Value DisplayName="1st">1</Value>
+              <Value DisplayName="2nd">2</Value>
+              <Value DisplayName="3rd">3</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="SeqGate" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Gate" DisplayGroup="ArpweaverFm/Sequencer">
+        <UserInterface Step="0.01" Fine="0.001" Decimals="3"/>
+        <DefaultValue>0.80</DefaultValue>
+        <AudioEnginePropertyID>41</AudioEnginePropertyID>
+        <Restrictions><ValueRestriction><Range Type="Real64"><Min>0.05</Min><Max>1</Max></Range></ValueRestriction></Restrictions>
+      </Property>
+
+      <Property Name="SeqStep1" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 1" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>true</DefaultValue><AudioEnginePropertyID>42</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep2" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 2" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>false</DefaultValue><AudioEnginePropertyID>43</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep3" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 3" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>true</DefaultValue><AudioEnginePropertyID>44</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep4" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 4" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>false</DefaultValue><AudioEnginePropertyID>45</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep5" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 5" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>true</DefaultValue><AudioEnginePropertyID>46</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep6" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 6" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>false</DefaultValue><AudioEnginePropertyID>47</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep7" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 7" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>true</DefaultValue><AudioEnginePropertyID>48</AudioEnginePropertyID></Property>
+      <Property Name="SeqStep8" Type="bool" SupportRTPCType="Exclusive" DisplayName="Step 8" DisplayGroup="ArpweaverFm/Sequencer/Steps"><DefaultValue>false</DefaultValue><AudioEnginePropertyID>49</AudioEnginePropertyID></Property>
+
+      <Property Name="UnisonOn" Type="bool" SupportRTPCType="Exclusive" DisplayName="Unison On" DisplayGroup="ArpweaverFm/FX/Unison">
+        <DefaultValue>false</DefaultValue>
+        <AudioEnginePropertyID>50</AudioEnginePropertyID>
+      </Property>
+    </Properties>
+  </SourcePlugin>
+</PluginModule>

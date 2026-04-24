@@ -1,0 +1,64 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpweaverFm", "SoundEnginePlugin\ArpweaverFm_Windows_vc160_shared.vcxproj", "{95444E26-BB19-E5A7-352D-5CE4533577CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BA48B74C-4BD5-1867-652D-7CA127609962} = {BA48B74C-4BD5-1867-652D-7CA127609962}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpweaverFmSource", "SoundEnginePlugin\ArpweaverFm_Windows_vc160_static.vcxproj", "{BA48B74C-4BD5-1867-652D-7CA127609962}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Profile|ARM64 = Profile|ARM64
+		Profile|Win32 = Profile|Win32
+		Profile|x64 = Profile|x64
+		Release|ARM64 = Release|ARM64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|ARM64.Build.0 = Debug|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|Win32.Build.0 = Debug|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|x64.ActiveCfg = Debug|x64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Debug|x64.Build.0 = Debug|x64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|ARM64.ActiveCfg = Profile|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|ARM64.Build.0 = Profile|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|Win32.ActiveCfg = Profile|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|Win32.Build.0 = Profile|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|x64.ActiveCfg = Profile|x64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Profile|x64.Build.0 = Profile|x64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|ARM64.ActiveCfg = Release|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|ARM64.Build.0 = Release|ARM64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|Win32.ActiveCfg = Release|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|Win32.Build.0 = Release|Win32
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|x64.ActiveCfg = Release|x64
+		{95444E26-BB19-E5A7-352D-5CE4533577CC}.Release|x64.Build.0 = Release|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|ARM64.ActiveCfg = Debug(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|ARM64.Build.0 = Debug(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|Win32.ActiveCfg = Debug(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|Win32.Build.0 = Debug(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|x64.ActiveCfg = Debug(StaticCRT)|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Debug|x64.Build.0 = Debug(StaticCRT)|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|ARM64.ActiveCfg = Profile(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|ARM64.Build.0 = Profile(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|Win32.ActiveCfg = Profile(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|Win32.Build.0 = Profile(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|x64.ActiveCfg = Profile(StaticCRT)|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Profile|x64.Build.0 = Profile(StaticCRT)|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|ARM64.ActiveCfg = Release(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|ARM64.Build.0 = Release(StaticCRT)|ARM64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|Win32.ActiveCfg = Release(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|Win32.Build.0 = Release(StaticCRT)|Win32
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|x64.ActiveCfg = Release(StaticCRT)|x64
+		{BA48B74C-4BD5-1867-652D-7CA127609962}.Release|x64.Build.0 = Release(StaticCRT)|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

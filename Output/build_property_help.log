@@ -1,0 +1,5 @@
+INFO:build_property_help_logger:
+INFO:build_property_help_logger:>>>>> Starting WwisePlugin\RtpcArpSynth.xml
+INFO:build_property_help_logger:
+INFO:build_property_help_logger:Parsing WwisePlugin\res\Md\en\Duration.md
+WARNING:build_property_help_logger:Duration.md does not have a property or reference in the xml file. It is most likely an InnerType (not supported by this script).
